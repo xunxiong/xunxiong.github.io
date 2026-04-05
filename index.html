@@ -48,7 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 52px;
+      height: 58px;
     }
     .nav-name {
       font-family: 'EB Garamond', serif;
@@ -74,18 +74,9 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── LOGO BAR ── */
-    .logo-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 0.6rem 2rem;
-    }
-    .logo-bar-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .logo-bar img {
-      height: 44px;
+    /* ── NAV LOGO ── */
+    .nav-logo img {
+      height: 38px;
       width: auto;
       display: block;
     }
@@ -387,19 +378,11 @@
 </head>
 <body>
 
-<div class="logo-bar">
-  <div class="logo-bar-inner">
-    <a href="https://business.ku.edu" target="_blank">
-      <img src="https://business.ku.edu/sites/business.ku.edu/files/images/general/KUB_horizontal_2C_web.png"
-           alt="KU School of Business"
-           onerror="this.src='https://brand.ku.edu/sites/default/files/images/KU-SoB-hor-01.png'" />
-    </a>
-  </div>
-</div>
-
 <nav>
   <div class="nav-inner">
-    <a class="nav-name" href="#top">Xun Xiong</a>
+    <a class="nav-logo" href="https://business.ku.edu" target="_blank">
+      <img src="KU_BSchool.png" alt="KU School of Business" />
+    </a>
     <ul class="nav-links">
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
