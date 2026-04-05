@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xun Xiong | Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2b4a;
+      --navy-mid: #2c4068;
+      --accent: #2563a8;
+      --accent-light: #dbeafe;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #fafafa;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,250,250,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 6rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 3rem;
+      align-items: start;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-photo {
+      width: 210px;
+      height: 260px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(26,43,74,0.15);
+    }
+    .hero-text h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 0.3rem;
+    }
+    .hero-pronounce {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+      font-style: italic;
+    }
+    .hero-affil {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      line-height: 1.5;
+    }
+    .hero-affil strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .hero-bio {
+      font-size: 0.97rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 1.6rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.4rem;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.86rem;
+      text-decoration: none;
+      padding: 0.3rem 0.85rem;
+      border-radius: 3px;
+      font-weight: 400;
+      transition: all 0.18s;
+    }
+    .link-primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .link-primary:hover { background: var(--navy-mid); }
+    .link-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--white);
+    }
+    .link-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 3.2rem; animation: fadeUp 0.6s ease both; }
+    section:nth-child(2) { animation-delay: 0.08s; }
+    section:nth-child(3) { animation-delay: 0.14s; }
+    section:nth-child(4) { animation-delay: 0.2s; }
+    section:nth-child(5) { animation-delay: 0.26s; }
+
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--navy);
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── PAPERS ── */
+    .paper {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .paper:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .paper-header {
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+      margin-bottom: 0.25rem;
+      flex-wrap: wrap;
+    }
+    .paper-num {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .paper-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      line-height: 1.3;
+      transition: color 0.18s;
+    }
+    .paper-title:hover { color: var(--navy); }
+    .paper-title-plain {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.15rem 0.55rem;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+    .badge-jmp { background: var(--navy); color: var(--white); }
+    .badge-rr  { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .badge-award { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+
+    .paper-meta {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .paper-meta a { color: var(--accent); text-decoration: none; }
+    .paper-meta a:hover { text-decoration: underline; }
+
+    .abstract-toggle {
+      background: none;
+      border: none;
+      font-size: 0.82rem;
+      color: var(--accent);
+      cursor: pointer;
+      padding: 0;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.18s;
+    }
+    .abstract-toggle:hover { color: var(--navy); }
+    .abstract-toggle .arrow { transition: transform 0.2s; display: inline-block; }
+    .abstract-toggle.open .arrow { transform: rotate(90deg); }
+
+    .abstract-body {
+      display: none;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.75;
+      padding: 0.8rem 1rem;
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 3px 3px 0;
+      margin-top: 0.4rem;
+    }
+    .abstract-body.open { display: block; }
+
+    .paper-details {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+    .paper-details strong { color: var(--text); }
+
+    /* ── PUBLICATIONS ── */
+    .pub {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub:last-child { border-bottom: none; }
+
+    /* ── TEACHING ── */
+    .teaching-item { margin-bottom: 1.4rem; }
+    .teaching-course {
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .teaching-detail { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.35rem; }
+
+    .student-quotes {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .quote {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+      padding: 0.5rem 0.85rem;
+      border-left: 2px solid var(--border);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 0;
+      margin-top: 2rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero-photo { width: 150px; height: 185px; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Xun Xiong</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <img class="hero-photo" src="xun_xiong.jpg" alt="Xun Xiong" />
+    <div class="hero-text">
+      <h1>Xun Xiong</h1>
+      <p class="hero-pronounce">First name pronounced: <em>Sh-you-n</em></p>
+      <p class="hero-affil">
+        <strong>Ph.D. Candidate in Finance</strong><br>
+        School of Business, University of Kansas
+      </p>
+      <p class="hero-bio">
+        My research interests lie at the intersection of corporate and household finance,
+        with a primary focus on how corporate payouts affect real economic outcomes.
+        I am also broadly interested in empirical corporate finance topics, including
+        payout policy, insider trading, corporate investment, and debt financing.
+      </p>
+      <div class="hero-links">
+        <a class="link-primary" href="https://www.dropbox.com/scl/fi/lcf0m6s30woxqoxnnsfsz/CV_Xun_Xiong.pdf?rlkey=6h4iptem1fwc6ffs91xs9nqt7&st=wq7z660h&dl=0" target="_blank">
+          Curriculum Vitae
+        </a>
+        <a class="link-ghost" href="mailto:xunxiong@ku.edu">xunxiong@ku.edu</a>
+        <a class="link-ghost" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=4782721" target="_blank">SSRN</a>
+        <a class="link-ghost" href="https://scholar.google.com/citations?user=_XPVTDAAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a class="link-ghost" href="https://www.linkedin.com/in/xun-xiong-537783219/" target="_blank">LinkedIn</a>
+        <a class="link-ghost" href="https://business.ku.edu/people/xun-xiong" target="_blank">KU Profile</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WORKING PAPERS ── -->
+  <section id="research">
+    <h2 class="section-title">Working Papers</h2>
+
+    <!-- Paper 1 -->
+    <div class="paper">
+      <div class="paper-header">
+        <span class="paper-num">[1]</span>
+        <a class="paper-title" href="https://www.dropbox.com/scl/fi/torxx2bvpylb6rpwq3al6/Corporate-Payouts-and-the-Real-Economy.pdf?rlkey=y4y02dsbm32vly4abanke27xc&st=tvb92lcs&dl=0" target="_blank">
+          From Payouts to Payrolls: Corporate Payouts and the Real Economy
+        </a>
+        <span class="badge badge-jmp">Job Market Paper</span>
+      </div>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)">
+        <span class="arrow">▶</span> Abstract
+      </button>
+      <div class="abstract-body">
+        Corporate payouts have increased substantially in recent decades, sparking debate over their broader economic
+        consequences. This paper examines the real effects of corporate payouts. Using IRS county-level dividend income
+        data, I find that higher household dividend income leads to greater local job creation, particularly among small
+        and young firms. I validate this finding using a shift-share instrument and a difference-in-differences design
+        that exploits large special dividend payments in 2010Q4 and 2012Q4. The effect arises through higher consumer
+        spending and expanded small-business lending fueled by increased bank deposits. Overall, this paper provides
+        evidence that corporate payouts facilitate capital reallocation from mature public firms to the broader economy,
+        implying that proposals to limit payouts may have unintended consequences.
+      </div>
+      <p class="paper-details"><strong>Presentations:</strong> AFA Ph.D. Poster (2026)</p>
+    </div>
+
+    <!-- Paper 2 -->
+    <div class="paper">
+      <div class="paper-header">
+        <span class="paper-num">[2]</span>
+        <a class="paper-title" href="https://www.dropbox.com/scl/fi/s7znc3ohirh6er8aobu6e/Beauty_fund_manager.pdf?rlkey=6n7ihn3uhnnqet72qrz5d64ia&st=v6xux0se&dl=0" target="_blank">
+          Does Mutual Fund Managers' Beauty Matter for Fund Performance?
+        </a>
+        <span class="badge badge-rr">Reject &amp; Resubmit, JFQA</span>
+      </div>
+      <p class="paper-meta">with <a href="https://www.unlv.edu/people/xiaobo-liang" target="_blank">Xiaobo Liang</a></p>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)">
+        <span class="arrow">▶</span> Abstract
+      </button>
+      <div class="abstract-body">
+        Mutual funds managed by physically attractive managers earn 1.03% higher annual abnormal returns than those managed
+        by less attractive managers.
+      </div>
+      <p class="paper-details">
+        <span class="badge badge-award">Best Ph.D. Student Paper Award, KU 2023</span><br>
+        <strong>Presentations</strong> (*by coauthor): University of Kansas (2023) | AFA Ph.D. Poster (2022)* | AsianFA (2021) | Camphor Conference for Finance (2021) | Global Conference on Innovations in Management and Business (2021)*
+      </p>
+    </div>
+
+    <!-- Paper 3 -->
+    <div class="paper">
+      <div class="paper-header">
+        <span class="paper-num">[3]</span>
+        <a class="paper-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5678765" target="_blank">
+          Fiscal Stimulus and Housing Booms: Evidence from the 2003 Tax Cuts
+        </a>
+      </div>
+      <p class="paper-meta">
+        with <a href="https://sites.google.com/site/leminglin" target="_blank">Leming Lin</a>
+        and <a href="https://www.atanasmihov.com/home" target="_blank">Atanas Mihov</a>
+      </p>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)">
+        <span class="arrow">▶</span> Main Finding
+      </button>
+      <div class="abstract-body">
+        The 2003 shareholder tax cuts significantly increased household disposable income, leading to a substantial rise
+        in house prices and a surge in housing-related activities.
+      </div>
+      <p class="paper-details">
+        <strong>Presentations</strong> (*by coauthor): AREUEA National Conference (2025) | MFA (2025) | AREUEA Ph.D. Poster (2025) | UEA North America (2025) | Boca Finance and Real Estate Conference (2025)* | RCF-ECGI Corporate Finance and Governance Conference (2025) | FMA (2025) | ODU Real Estate Research Symposium (2025) | Silicon Prairie Finance Conference (2025) | University of Mississippi (2025)* | University of Pittsburgh (2025)* | Virtual Household Finance Seminar (2025)* | University of Kansas (2024)
+      </p>
+    </div>
+
+    <!-- Paper 4 -->
+    <div class="paper">
+      <div class="paper-header">
+        <span class="paper-num">[4]</span>
+        <a class="paper-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4834650" target="_blank">
+          Operational Losses and Insider Trading: Evidence from U.S. Financial Institutions
+        </a>
+      </div>
+      <p class="paper-meta">
+        with <a href="https://whitman.syracuse.edu/faculty-and-research/faculty-staff-directory/details/annac" target="_blank">Anna Chernobai</a>,
+        <a href="https://www.curtifilippo.com/" target="_blank">Filippo Curti</a>,
+        and <a href="https://www.atanasmihov.com/home" target="_blank">Atanas Mihov</a>
+      </p>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)">
+        <span class="arrow">▶</span> Main Finding
+      </button>
+      <div class="abstract-body">
+        Insiders at financial institutions exhibit higher levels of share sales in the two months before the disclosure
+        of an operational loss.
+      </div>
+      <p class="paper-details">
+        <span class="badge badge-award">Semifinalist, FMA Best Paper Award 2025</span><br>
+        <strong>Presentations:</strong> FMA (2025)
+      </p>
+    </div>
+
+    <!-- Paper 5 -->
+    <div class="paper">
+      <div class="paper-header">
+        <span class="paper-num">[5]</span>
+        <span class="paper-title-plain">
+          Shareholder Tax Cut, Financial Constraints, and Corporate Innovation
+        </span>
+      </div>
+      <p class="paper-meta">
+        with <a href="https://sites.google.com/site/zhaozhaohe" target="_blank">Zhaozhao He</a>
+        and <a href="https://mbwintoki.github.io/" target="_blank">Jide Wintoki</a>
+      </p>
+      <button class="abstract-toggle" onclick="toggleAbstract(this)">
+        <span class="arrow">▶</span> Main Finding
+      </button>
+      <div class="abstract-body">
+        Firms with different financial constraints exhibit heterogeneous responses to a shareholder tax cut: constrained
+        firms increase innovation by issuing equity, as the tax cut lowers the cost of capital, whereas unconstrained
+        firms do not expand investment but instead raise payouts.
+      </div>
+      <p class="paper-details">
+        <strong>Presentations:</strong> FMA (2024) | Silicon Prairie Finance Conference (2024) | University of Kansas (2023)
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ── PUBLICATIONS ── -->
+  <section id="publications">
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub">
+      <div class="paper-header">
+        <span class="paper-num">[6]</span>
+        <a class="paper-title" href="https://www.dropbox.com/scl/fi/k7ae5gq99dy09ia1e1937/MS-and-innovation.pdf?rlkey=z4nslnmqtczk3pjfbdfnt5on6&st=q24z959e&dl=0" target="_blank">
+          Manager Sentiment and Its Effect on Corporate Innovation
+        </a>
+      </div>
+      <p class="paper-meta">
+        with <a href="https://cefms.hnu.edu.cn/info/1064/2925.htm" target="_blank">Long Zhao</a>
+        &mdash; <em>Economic Modelling</em>, Volume 143: 106968 (2025)
+      </p>
+      <p class="paper-details">
+        <span class="badge badge-award">Best Ph.D. Student Paper Award, KU 2025</span>
+        <span class="badge badge-award">John O. Tollefson Best Paper Award, KU 2025</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── TEACHING ── -->
+  <section id="teaching">
+    <h2 class="section-title">Teaching</h2>
+
+    <div class="teaching-item">
+      <p class="teaching-course">FIN 415 &mdash; Corporate Finance (Undergraduate)</p>
+      <p class="teaching-detail">Instructor of Record &bull; University of Kansas</p>
+      <p class="paper-details">
+        <span class="badge badge-award">John O. Tollefson Doctoral Student Teaching Award, KU 2025</span>
+      </p>
+
+      <div class="student-quotes" style="margin-top:1rem;">
+        <p style="font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:500;">Selected Student Comments</p>
+
+        <div class="quote">"Responds to emails extremely fast — the fastest I have ever seen from any professor. Very patient with students and will always try his best to explain course material."</div>
+        <div class="quote">"He had a great enthusiasm for teaching, the material was clear and easy to understand, and he cared for us as students."</div>
+        <div class="quote">"Professor Xiong was very helpful and communicated well. My favorite finance teacher so far."</div>
+        <div class="quote">"The slides are very comprehensive &amp; the Excel files are incredibly valuable for using the formulas."</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div style="max-width:900px;margin:0 auto;padding:0 2rem;">
+  <footer>
+    <span>Xun Xiong &bull; Ph.D. Candidate in Finance, University of Kansas</span>
+    <span>Last updated: March 2026</span>
+  </footer>
+</div>
+
+<script>
+  function toggleAbstract(btn) {
+    btn.classList.toggle('open');
+    const body = btn.nextElementSibling;
+    body.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
