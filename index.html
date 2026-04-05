@@ -42,7 +42,7 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 2rem;
       display: flex;
@@ -74,9 +74,59 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
+    /* ── LOGO BAR ── */
+    .logo-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 2rem;
+    }
+    .logo-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .logo-bar img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    /* ── ICON LINKS ── */
+    .icon-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.84rem;
+      text-decoration: none;
+      padding: 0.28rem 0.75rem;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--white);
+      font-weight: 400;
+      transition: all 0.18s;
+    }
+    .icon-link:hover { border-color: var(--accent); color: var(--accent); }
+    .icon-link img {
+      height: 16px;
+      width: auto;
+      display: block;
+    }
+    .icon-link.primary {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .icon-link.primary:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
     /* ── LAYOUT ── */
     main {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 3.5rem 2rem 6rem;
     }
@@ -84,8 +134,8 @@
     /* ── HERO ── */
     .hero {
       display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 3rem;
+      grid-template-columns: 240px 1fr;
+      gap: 3.5rem;
       align-items: start;
       padding-bottom: 3rem;
       border-bottom: 1px solid var(--border);
@@ -93,8 +143,8 @@
       animation: fadeUp 0.6s ease both;
     }
     .hero-photo {
-      width: 210px;
-      height: 260px;
+      width: 240px;
+      height: 295px;
       object-fit: cover;
       object-position: top center;
       border-radius: 4px;
@@ -337,6 +387,16 @@
 </head>
 <body>
 
+<div class="logo-bar">
+  <div class="logo-bar-inner">
+    <a href="https://business.ku.edu" target="_blank">
+      <img src="https://business.ku.edu/sites/business.ku.edu/files/images/general/KUB_horizontal_2C_web.png"
+           alt="KU School of Business"
+           onerror="this.src='https://brand.ku.edu/sites/default/files/images/KU-SoB-hor-01.png'" />
+    </a>
+  </div>
+</div>
+
 <nav>
   <div class="nav-inner">
     <a class="nav-name" href="#top">Xun Xiong</a>
@@ -366,15 +426,37 @@
         I am also broadly interested in empirical corporate finance topics, including
         payout policy, insider trading, corporate investment, and debt financing.
       </p>
-      <div class="hero-links">
-        <a class="link-primary" href="https://www.dropbox.com/scl/fi/lcf0m6s30woxqoxnnsfsz/CV_Xun_Xiong.pdf?rlkey=6h4iptem1fwc6ffs91xs9nqt7&st=wq7z660h&dl=0" target="_blank">
+      <div class="icon-links">
+        <!-- CV -->
+        <a class="icon-link primary" href="https://www.dropbox.com/scl/fi/lcf0m6s30woxqoxnnsfsz/CV_Xun_Xiong.pdf?rlkey=6h4iptem1fwc6ffs91xs9nqt7&st=wq7z660h&dl=0" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           Curriculum Vitae
         </a>
-        <a class="link-ghost" href="mailto:xunxiong@ku.edu">xunxiong@ku.edu</a>
-        <a class="link-ghost" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=4782721" target="_blank">SSRN</a>
-        <a class="link-ghost" href="https://scholar.google.com/citations?user=_XPVTDAAAAAJ&hl=en" target="_blank">Google Scholar</a>
-        <a class="link-ghost" href="https://www.linkedin.com/in/xun-xiong-537783219/" target="_blank">LinkedIn</a>
-        <a class="link-ghost" href="https://business.ku.edu/people/xun-xiong" target="_blank">KU Profile</a>
+        <!-- Email -->
+        <a class="icon-link" href="mailto:xunxiong@ku.edu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          xunxiong@ku.edu
+        </a>
+        <!-- LinkedIn -->
+        <a class="icon-link" href="https://www.linkedin.com/in/xun-xiong-537783219/" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <!-- Google Scholar -->
+        <a class="icon-link" href="https://scholar.google.com/citations?user=_XPVTDAAAAAJ&hl=en" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z" fill="#4285F4"/></svg>
+          Google Scholar
+        </a>
+        <!-- SSRN -->
+        <a class="icon-link" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=4782721" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          SSRN
+        </a>
+        <!-- KU Profile -->
+        <a class="icon-link" href="https://business.ku.edu/people/xun-xiong" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          KU Profile
+        </a>
       </div>
     </div>
   </div>
@@ -554,7 +636,7 @@
 
 </main>
 
-<div style="max-width:900px;margin:0 auto;padding:0 2rem;">
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
   <footer>
     <span>Xun Xiong &bull; Ph.D. Candidate in Finance, University of Kansas</span>
     <span>Last updated: March 2026</span>
